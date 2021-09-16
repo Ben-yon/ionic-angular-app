@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 
@@ -26,6 +27,14 @@ export class RecipesService {
   }
 
   getRecipe(recipeId: string){
-    return {...this.recipes.find(recipe => recipe.id === recipeId)};
+    return {...this.recipes.find(recipe => {
+      return recipe.id === recipeId;
+    })};
+  }
+
+  deleteRecipe(recipeId: string){
+    this.recipes = this.recipes.filter((recipe) => {
+      return recipe.id !== recipeId;
+    });
   }
 }
