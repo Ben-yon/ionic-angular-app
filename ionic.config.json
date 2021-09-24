@@ -1,7 +1,9 @@
 {
   "name": "ionic-app-demo",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "linuxAndroidStudioPath": "/home/benny/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/203.7678000/bin/studio.sh"
+    }
   },
   "type": "angular"
 }
