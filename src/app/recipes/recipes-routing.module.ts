@@ -6,15 +6,16 @@ import { RecipesPage } from './recipes.page';
 const routes: Routes = [
   {
     path: '',
-    component: RecipesPage
+    component: RecipesPage,
+    pathMatch: 'full'
   },
+  // {
+  //   path: ':recipeId',
+  //   loadChildren: () => import('./recipe-detail/recipe-detail.module').then( m => m.RecipeDetailPageModule),
+  // },
   {
-    path: ':recipeId',
-    loadChildren: () => import('./recipe-detail/recipe-detail.module').then( m => m.RecipeDetailPageModule)
-  },
-  {
-    path: 'add-recipe-item',
-    loadChildren: () => import('./add-recipe-item/add-recipe-item.module').then( m => m.AddRecipeItemPageModule)
+    path: 'addRecipe',
+    loadChildren: () => import('./add-recipe/add-recipe.module').then( m => m.AddRecipePageModule)
   }
 ];
 
