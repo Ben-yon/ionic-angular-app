@@ -18,11 +18,14 @@
           <ion-card-content>
             <ion-item>
               <ion-label position="floating">Title</ion-label>
-              <ion-input type="text" formControlName="title"></ion-input>
+              <ion-input type="text" [(ngModel)]="title"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Desciption</ion-label>
-              <ion-input type="text" formControlName="description"></ion-input>
+              <ion-input type="text" [(ngModel)]="ingredients"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="file" hidden="true" accept="image/*"></ion-input>
             </ion-item>
           </ion-card-content>
         </ion-card>

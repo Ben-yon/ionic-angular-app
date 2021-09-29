@@ -13,7 +13,7 @@ import { AddRecipePage } from './add-recipe.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AddRecipePageRoutingModule
+    AddRecipePageRoutingModule,
   ],
   declarations: [AddRecipePage]
 })
