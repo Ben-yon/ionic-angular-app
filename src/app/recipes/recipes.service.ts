@@ -40,17 +40,15 @@ export class RecipesService {
   }
 
   async addRecipe(title: string, ingredients: [], imageUrl: string){
-    const index = this.recipes.find(idx=> idx.id);
+    return this.recipes.push({id: 'r3', title, ingredients, imageUrl});
+  }
 
-    if (index.title){
-      const alert = await this.alertController.create({
-        header: 'Recipe Exist!',
-        message: 'Please this recipe already exist, try another time',
-        buttons: ['OK']
-      });
-
-      alert.present();
-    }
-    return this.recipes.push({id: 'r3', title, imageUrl, ingredients});
+  async getAlertMsg(header: string, message: string, buttons: string[]){
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons
+    });
+    alert.present();
   }
 }

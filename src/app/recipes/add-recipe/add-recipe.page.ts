@@ -1,3 +1,4 @@
+import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins, } from '@capacitor/core';
 import { CameraResultType } from '@capacitor/camera';
@@ -12,13 +13,15 @@ export class AddRecipePage implements OnInit {
   public ingredients: [];
   public title: string;
 
-  constructor() {}
+  constructor(private recipeService: RecipesService) {}
 
   ngOnInit() {
   }
 
   addItem(){
-
-  }
+    if (!this.title || !this.ingredients){
+     this.recipeService.getAlertMsg('No Title Provided', 'Please provided a title and the description for the recipe', ['OK']);
+    }
+    }
 
 }
