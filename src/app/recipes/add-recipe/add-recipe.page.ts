@@ -12,6 +12,7 @@ import { Platform, ActionSheetController } from '@ionic/angular';
 export class AddRecipePage implements OnInit {
   public ingredients: [];
   public title: string;
+  public imageUrl: string;
 
   constructor(private recipeService: RecipesService) {}
 
@@ -22,6 +23,10 @@ export class AddRecipePage implements OnInit {
     if (!this.title || !this.ingredients){
      this.recipeService.getAlertMsg('No Title Provided', 'Please provided a title and the description for the recipe', ['OK']);
     }
+    else{
+      return this.recipeService.addRecipe(this.title, this.ingredients, this.imageUrl);
+    }
+    console.log('recipe added');
     }
 
 }

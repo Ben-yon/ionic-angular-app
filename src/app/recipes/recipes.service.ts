@@ -40,7 +40,8 @@ export class RecipesService {
   }
 
   async addRecipe(title: string, ingredients: [], imageUrl: string){
-    return this.recipes.push({id: 'r3', title, ingredients, imageUrl});
+    const newRecipeList = this.recipes.push({id: 'r3', title, ingredients, imageUrl});
+    return newRecipeList;
   }
 
   async getAlertMsg(header: string, message: string, buttons: string[]){
