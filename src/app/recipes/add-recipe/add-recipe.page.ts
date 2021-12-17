@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins, } from '@capacitor/core';
@@ -14,7 +15,7 @@ export class AddRecipePage implements OnInit {
   public title: string;
   public imageUrl: string;
 
-  constructor(private recipeService: RecipesService) {}
+  constructor(private recipeService: RecipesService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -25,8 +26,8 @@ export class AddRecipePage implements OnInit {
     }
     else{
       return this.recipeService.addRecipe(this.title, this.ingredients, this.imageUrl);
+      this.router.navigate(['/']);
     }
-    console.log('recipe added');
     }
 
 }
