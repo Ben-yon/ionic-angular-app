@@ -25,7 +25,8 @@ export class AddRecipePage implements OnInit {
      this.recipeService.getAlertMsg('No Title Provided', 'Please provided a title and the description for the recipe', ['OK']);
     }
     const newItem = this.recipeService.addRecipe(this.title, this.ingredients, this.imageUrl);
-    if (newItem){this.router.navigate(['/']);
+    if (newItem){
+      this.router.navigate(['/']);
       }
     return newItem;
 }
