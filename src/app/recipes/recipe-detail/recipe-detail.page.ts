@@ -42,4 +42,13 @@ export class RecipeDetailPage implements OnInit {
     await alert.present();
 
   }
+  convertToJSON(ingredients: any): any {
+    if (ingredients instanceof Array){
+      return ingredients;
+    }
+    else{
+      return ingredients.split(',');
+    }
+
+  }
 }
