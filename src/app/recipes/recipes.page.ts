@@ -1,5 +1,5 @@
 import { Recipe } from './recipe.model';
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { RecipesService } from './recipes.service';
 
 @Component({
@@ -7,11 +7,19 @@ import { RecipesService } from './recipes.service';
   templateUrl: './recipes.page.html',
   styleUrls: ['./recipes.page.scss'],
 })
-export class RecipesPage implements OnInit {
+export class RecipesPage implements OnChanges, AfterViewInit, AfterContentChecked{
+
   recipes: Recipe[];
+
   constructor(private recipesService: RecipesService) { }
 
-  ngOnInit() {
+
+  ngOnChanges(changes: SimpleChanges): void {
+  }
+  ngAfterViewInit(): void {
+
+  }
+  ngAfterContentChecked(): void {
     this.recipes = this.recipesService.getAllRecipes();
   }
 

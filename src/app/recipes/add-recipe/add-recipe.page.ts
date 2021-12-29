@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { RecipesService } from './../recipes.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins, } from '@capacitor/core';
+import { Recipe } from '../recipe.model';
 import { CameraResultType } from '@capacitor/camera';
 import { Platform, ActionSheetController } from '@ionic/angular';
 
@@ -16,18 +17,19 @@ export class AddRecipePage implements OnInit {
   public imageUrl: string;
 
   constructor(private recipeService: RecipesService, private router: Router) {}
-
   ngOnInit() {
   }
 
-  addItem(){
+  async addItem(){
     if (!this.title || !this.ingredients){
      this.recipeService.getAlertMsg('No Title Provided', 'Please provided a title and the description for the recipe', ['OK']);
+    }else{
+      const newItem = this.recipeService.addRecipe(this.title, this.ingredients);
+      console.log('New item 988');
+      return this.router.navigate(['/recipes']);
     }
-    const newItem = this.recipeService.addRecipe(this.title, this.ingredients, this.imageUrl);
-    if (newItem){
-      this.router.navigate(['/']);
-      }
-    return newItem;
+    // if (newItem){
+    //   return this.router.navigate(['/']);
+    //   }
 }
 }

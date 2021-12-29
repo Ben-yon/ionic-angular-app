@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
@@ -7,7 +8,7 @@ import { AlertController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class RecipesService {
-  private recipes: Recipe[] = [
+  public recipes: Recipe[] = [
     {
       id: 'r1',
       title: 'Schnitzel',
@@ -39,8 +40,10 @@ export class RecipesService {
     });
   }
 
-  async addRecipe(title: string, ingredients: [], imageUrl: string){
-    const newRecipeList = this.recipes.push({id: Math.random().toString(), title, ingredients, imageUrl});
+  addRecipe(title: string, ingredients: []){
+    const newRecipeList = this.recipes.push({id: Math.random().toString(), title, ingredients, imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Schnitzel_%288427472224%29.jpg'});
+    console.log(this.recipes.length);
+    console.table(this.recipes);
     return newRecipeList;
   }
 
