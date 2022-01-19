@@ -5,12 +5,12 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'Tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
         path: 'add-recipe',
-        loadChildren: () => import('./../recipes/add-recipe/add-recipe.page').then(m=>m.AddRecipePage)
+        loadChildren: () => import('./../recipes/add-recipe/add-recipe-routing.module').then(m=>m.AddRecipePageRoutingModule)
       }
     ]
   }
