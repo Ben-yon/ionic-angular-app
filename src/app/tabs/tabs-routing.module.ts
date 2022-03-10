@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: 'add-recipe',
         loadChildren: () => import('./../recipes/add-recipe/add-recipe-routing.module').then(m=>m.AddRecipePageRoutingModule)
+      },
+      {
+        path: 'recipes',
+        loadChildren: () => import('./../recipes/recipes.module').then(m=>m.RecipesPageModule)
       }
     ]
   }
